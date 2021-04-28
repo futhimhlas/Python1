@@ -7,14 +7,21 @@ app = Flask(__name__)
 def index():
     return render_template("index.html") # Flask would find this file on the same level of our run.py file, in a folder called "templates"
 
+
 @app.route("/about") # Argument passed here represents a file name. The names underneath have to correspond with the argument passed into the url_for functions on our HTML page
 def about():
     return render_template("about.html")
+
+
+@app.route("/careers")
+def careers():
+    return render_template("careers.html")
 
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
 
+# Two blank lines between each python function is good code practice
 if __name__ == "__main__": 
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
