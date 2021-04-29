@@ -4,3 +4,8 @@ mkdir is a git command that makes directrories. Static is used to house files th
 # wget
 wget cmd followed by "https://github.com/startbootstrap/startbootstrap-clean-blog/archive/gh-pages.zip" (a link) which downloads the source files for us. unzip cmd can be used to unzip a zip files
 
+# {% %} 
+Is for statements like for loops.
+{% for number in list_of_numbers %}
+<p> {{ number }}</p>
+{% endfor %} simple for loop in flask/python. endfor tells python where the foor loop ends
