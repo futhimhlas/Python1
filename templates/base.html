@@ -3,19 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}"> <!-- both arguments relate to filename/directories and go in single quotes. First argument is a directory and seccond is the filename-->
     <title>Hello Flask</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{url_for('index')}}">Home</a></li> <!-- calls a function that has to correspond with the names in our python file. index and about-->
-            <li><a href="{{url_for('about')}}">About</a></li> <!-- calls a function that has to correspond with the names in our python file. index and about-->
-            <li><a href="{{url_for('contact')}}">Contact</a></li> <!-- calls a function that has to correspond with the names in our python file. index and about-->
-            <li><a href="{{url_for('careers')}}">Careers</a></li> <!-- calls a function that has to correspond with the names in our python file. index and about-->
-        </ul>
-    </nav>
-    <!-- content is the name of the block here.-->
-    {% block content %} 
-    {% endblock %}
-</body>
-</html>
+     <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('index') }}">Thorin &amp; Company</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('careers') }}">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('https://i.pinimg.com/originals/8e/88/8c/8e888c9f35c0a1c18dfdb5698176cb6a.png')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h1>Thorin &amp; Company</h1>
+                            <span class="subheading">Thorin and his company of dwarves</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+           {% block content %}
+           {% endblock %}
+        </div>
+        <hr />
+        <!-- Footer-->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">Copyright &copy; Your Website <span id="copyright"></span></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script>
+            $("#copyright").text(new Date().getFullYear());
+        </script>
+    </body>
+</html> 
