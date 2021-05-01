@@ -19,6 +19,17 @@ def about():
     return render_template("about.html", page_title="About", company = data) # render_template takes as many arguemnts as you like. Variable name page_title could have been anything
 
 
+@app.route("/about/<member_name>") # Angle brakcets will pas in the data from ou url path into the view below
+def about_member(member_name):
+    member={}
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+        for object in data:
+            if object["url"] == member_name:
+                member = object 
+        return render_template("member.html", member=member) #
+    
+     
 @app.route("/careers")
 def careers():
     return render_template("careers.html", page_title="Careers")
