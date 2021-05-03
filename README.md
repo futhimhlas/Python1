@@ -13,4 +13,10 @@ Is for statements like for loops.
 # Installing heroku
 npm install -g heroku in cmd line. npm -> node package manager and -g means globally.
 
-heroku apps:rename thorin-flask-app-futhi1 --app thorin-flask-app-futhi <-- renaming an app
+heroku apps:rename thorin-flask-app-futhi1 --app thorin-flask-app-futhi <-- renaming an app 
+
+remote add heroku https://git.heroku.com/thorin-flask-app-futhi.git <-- Adding another remote. heroku is the name in this instance
+
+git push -u heroku master <-- pushes to heroku but after a list of python dependecies has been added
+
+heroku logs --tail --app APP-NAME <-- to see app logs
